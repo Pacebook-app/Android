@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.main.ResultFragment">
+
+
+    <TextView
+        android:id="@+id/result_Runresult_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="러닝 결과"
+        android:textSize="32sp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/result_Totaltime1_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:text="2h 8min"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/result_Totaltime2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Time"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/result_Totaltime1_tv"
+        app:layout_constraintLeft_toLeftOf="@id/result_Totaltime1_tv" />
+
+    <TextView
+        android:id="@+id/result_pace1_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:text="5'03''"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/result_pace2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pace"
+        app:layout_constraintTop_toBottomOf="@+id/result_pace1_tv"
+        app:layout_constraintLeft_toLeftOf="@+id/result_pace1_tv" />
+
+    <TextView
+        android:id="@+id/result_distance1_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:text="2.8km"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.80"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/result_distance2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="distance"
+        app:layout_constraintTop_toBottomOf="@+id/result_distance1_tv"
+        app:layout_constraintLeft_toLeftOf="@+id/result_distance1_tv" />
+
+    <TextView
+        android:id="@+id/result_kcal1_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:text="2,803"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/result_kcal2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kcal"
+        app:layout_constraintTop_toBottomOf="@+id/result_kcal1_tv"
+        app:layout_constraintLeft_toLeftOf="@+id/result_kcal1_tv" />
+
+    <TextView
+        android:id="@+id/result_heart1_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:text="--"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.70"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/result_heart2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="heart rate"
+        app:layout_constraintTop_toBottomOf="@+id/result_heart1_tv"
+        app:layout_constraintLeft_toLeftOf="@+id/result_heart1_tv" />
+
+    <TextView
+        android:id="@+id/result_return_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="러닝 페이지로 돌아가기"
+        android:textSize="18sp"
+        android:layout_marginTop="650dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
