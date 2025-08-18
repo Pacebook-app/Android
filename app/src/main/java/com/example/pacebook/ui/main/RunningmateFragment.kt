@@ -1,60 +1,80 @@
 package com.example.pacebook.ui.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.pacebook.databinding.FragmentRunningmateBinding
+import com.example.pacebook.ui.RecyclerView.ChooseMateAdapter
+import com.example.pacebook.ui.RecyclerView.SelectedMateAdapter
+import com.example.pacebook.ui.model.User
 import com.example.pacebook.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RunningmateFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RunningmateFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentRunningmateBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var chooseMateAdapter: ChooseMateAdapter
+    private lateinit var selectedMateAdapter: SelectedMateAdapter
+
+    private val selectedUsers = mutableListOf<User>()
+    private val allUsers = mutableListOf<User>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_runningmate, container, false)
+    ): View {
+        _binding = FragmentRunningmateBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RunningmateFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RunningmateFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // 상단 RecyclerView (선택된 메이트)
+        selectedMateAdapter = SelectedMateAdapter(selectedUsers)
+        binding.runningmateSelectedlistRv.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.runningmateSelectedlistRv.adapter = selectedMateAdapter
+
+        // 하단 RecyclerView (전체 메이트 목록)
+        chooseMateAdapter = ChooseMateAdapter(allUsers) { user ->
+            if (!selectedUsers.contains(user)) {
+                selectedUsers.add(user)
+                selectedMateAdapter.notifyItemInserted(selectedUsers.size - 1)
+                updateMateTitle()
             }
+        }
+
+        binding.runninmateChooselistRv.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.runninmateChooselistRv.adapter = chooseMateAdapter
+
+        // 테스트용 더미 데이터
+        populateDummyData()
+    }
+
+    private fun populateDummyData() {
+        allUsers.addAll(
+            listOf(
+                User("한양대 정문", 5, R.drawable.ic_launcher_background),
+                User("한대앞역", 3, R.drawable.ic_launcher_background),
+                User("파리바게트 앞", 4, R.drawable.ic_launcher_background),
+                User("후문 놀이터", 2, R.drawable.ic_launcher_background),
+            )
+        )
+        chooseMateAdapter.notifyDataSetChanged()
+    }
+
+    private fun updateMateTitle() {
+        binding.runningmateTitleTv.text = "나의 메이트 (${selectedUsers.size})"
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
