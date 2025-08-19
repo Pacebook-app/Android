@@ -60,10 +60,13 @@ class RunningmateFragment : Fragment() {
     private fun populateDummyData() {
         allUsers.addAll(
             listOf(
-                User("한양대 정문", 5, R.drawable.ic_launcher_background),
-                User("한대앞역", 3, R.drawable.ic_launcher_background),
-                User("파리바게트 앞", 4, R.drawable.ic_launcher_background),
-                User("후문 놀이터", 2, R.drawable.ic_launcher_background),
+                User("한양대 정문", 5, R.drawable.example_picture),
+                User("한대앞역", 3, R.drawable.example_picture),
+                User("파리바게트 앞", 4, R.drawable.example_picture),
+                User("후문 놀이터", 2, R.drawable.example_picture),
+                User( "안산천" , 6, R.drawable.example_picture),
+                User( "호수공원" , 7, R.drawable.example_picture),
+                User( "상록수 근처" , 8, R.drawable.example_picture)
             )
         )
         chooseMateAdapter.notifyDataSetChanged()
