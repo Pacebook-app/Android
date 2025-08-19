@@ -20,18 +20,37 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/example_picture"
             app:shapeAppearanceOverlay="@style/corner" />
 
         <!-- 장소명 -->
-        <TextView
-            android:id="@+id/choose_mate_location_tv"
+
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="한양대 ERICA 러닝"
-            android:textColor="#737070"
-            android:textSize="15sp"/>
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            android:gravity="end|center_vertical">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/location_icon"/>
+
+            <TextView
+                android:id="@+id/choose_mate_location_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="3dp"
+                android:text="한양대 ERICA 러닝"
+                android:textColor="#737070"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
 
         <!-- 인원수 + 아이콘 -->
         <LinearLayout
@@ -53,7 +72,7 @@
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_marginStart="4dp"
-                android:src="@drawable/ic_launcher_foreground"/>
+                android:src="@drawable/people_icon"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

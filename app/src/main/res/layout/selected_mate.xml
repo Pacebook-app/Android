@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/example_picture"
             app:shapeAppearanceOverlay="@style/corner" />
 
         <!-- 장소명 -->
@@ -55,7 +55,7 @@
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_marginStart="4dp"
-                android:src="@drawable/ic_launcher_foreground" />
+                android:src="@drawable/people_icon" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
