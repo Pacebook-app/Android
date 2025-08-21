@@ -25,14 +25,13 @@
             app:titleTextColor="@android:color/black" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- 본문: 스크롤 없이 고정 배치 -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/recruitment_content_CL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <!-- 고정 사진 카드 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/recruitment_picture_CV"
             android:layout_width="0dp"
@@ -105,7 +104,7 @@
                 app:boxBackgroundMode="outline"
                 app:shapeAppearanceOverlay="@style/corner"
                 app:counterEnabled="true"
-                app:boxStrokeColor="@color/white"
+                app:boxStrokeColor="@color/text_inputbox"
                 app:counterMaxLength="15">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -149,7 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxBackgroundMode="outline"
-                app:boxStrokeColor="@color/corner"
+                app:boxStrokeColor="@color/text_inputbox"
                 app:shapeAppearanceOverlay="@style/corner"
                 app:counterEnabled="true"
                 app:counterMaxLength="15">
@@ -200,6 +199,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     app:shapeAppearanceOverlay="@style/corner"
+                    app:boxStrokeColor="@color/text_inputbox"
                     android:layout_height="35dp"
                     android:layout_weight="1"
                     android:hint="시작 시간">
@@ -223,6 +223,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     app:shapeAppearanceOverlay="@style/corner"
+                    app:boxStrokeColor="@color/text_inputbox"
                     android:layout_height="35dp"
                     android:layout_weight="1"
                     android:hint="종료 시간">

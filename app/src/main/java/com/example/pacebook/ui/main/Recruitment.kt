@@ -1,60 +1,67 @@
 package com.example.pacebook.ui.main
 
+import android.app.TimePickerDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.pacebook.R
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
+import java.util.Calendar
+import android.util.Log
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class Recruitment : Fragment(R.layout.fragment_recruitment) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Recruitment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class Recruitment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        Log.d("RecruitmentFragment", "onViewCreated 시작!")
+
+
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.recruitment_appbar_MT)
+        toolbar.setNavigationOnClickListener {
+            parentFragmentManager.popBackStack()
         }
+
+        val startTimeLayout = view.findViewById<TextInputLayout>(R.id.recruitment_starttimebox_IL)
+        val endTimeLayout = view.findViewById<TextInputLayout>(R.id.recruitment_endtimebox_IL)
+
+
+        val startTimeEditText = view.findViewById<TextInputEditText>(R.id.recruitment_starttime_TI)
+        val endTimeEditText = view.findViewById<TextInputEditText>(R.id.recruitment_endtime_TI)
+
+        Log.d("RecruitmentFragment", "startTimeLayout is null: ${startTimeLayout == null}")
+        Log.d("RecruitmentFragment", "endTimeLayout is null: ${endTimeLayout == null}")
+
+        startTimeLayout.setOnClickListener {
+            showTimePickerDialog(startTimeEditText) // 함수 호출은 EditText를 넘겨줍니다.
+            Log.d("RecruitmentFragment", "Start Time Layout 클릭됨!")
+        }
+        endTimeLayout.setOnClickListener {
+            showTimePickerDialog(endTimeEditText)
+            Log.d("RecruitmentFragment", "End Time Layout 클릭됨!")
+        }
+        Log.d("RecruitmentFragment", "Click Listener 설정 완료")
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recruitment, container, false)
-    }
+    private fun showTimePickerDialog(targetEditText: TextInputEditText) {
+        val cal = Calendar.getInstance()
+        val timePickerDialog = TimePickerDialog(
+            requireContext(),
+            { _, hourOfDay, minute ->
+                val ampm = if (hourOfDay < 12) "오전" else "오후"
+                val formattedHour = if (hourOfDay == 0 || hourOfDay == 12) 12 else hourOfDay % 12
+                val formattedMinute = String.format("%02d", minute)
+                val selectedTime = "$ampm $formattedHour:$formattedMinute"
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Recruitment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Recruitment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+                targetEditText.setText(selectedTime)
+            },
+            cal.get(Calendar.HOUR_OF_DAY),
+            cal.get(Calendar.MINUTE),
+            false
+        )
+        timePickerDialog.show()
     }
 }

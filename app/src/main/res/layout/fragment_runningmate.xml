@@ -7,6 +7,28 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.RunningmateFragment">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/runningmate_appbar_ABL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/runingmate_appbar_MT"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:navigationIcon="@drawable/chevron_icon"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/ToolbarTitleText"
+            app:titleTextColor="@android:color/black"
+
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
     <!-- 상단 제목 -->
     <TextView
         android:id="@+id/runningmate_title_tv"
@@ -21,28 +43,54 @@
         app:layout_constraintHorizontal_bias="0.15"
         android:layout_marginTop="100dp"/>
 
-    <!-- 가로 RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/runningmate_selectedlist_rv"
-        android:layout_width="match_parent"
+    <FrameLayout
+        android:id="@+id/runningmate_selectedframe_fl"
+        android:layout_width="0dp"
         android:layout_height="180dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@id/runningmate_title_tv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15dp"
-        tools:listitem="@layout/selected_mate" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- 하단 선 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/runningmate_selectedlist_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            tools:listitem="@layout/selected_mate" />
+
+        <TextView
+            android:id="@+id/runningmate_empty_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나만의 메이트를 만들거나\n새로운 메이트를 만들어 보세요."
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
     <View
         android:id="@+id/runningmate_line_v"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="#104BD7"
-        app:layout_constraintTop_toBottomOf="@id/runningmate_selectedlist_rv"
+        app:layout_constraintTop_toBottomOf="@id/runningmate_selectedframe_fl"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="3dp" />
+
+
+
+
+    <!-- 네비게이션바를 위한 가이드라인을 적용 -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/runningmate_guideline_Gl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/bottom_navigation_height" />
 
     <!-- 세로 RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
@@ -51,7 +99,7 @@
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/runningmate_line_v"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/runningmate_guideline_Gl"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
@@ -66,7 +114,7 @@
         android:contentDescription="메이트 추가"
         android:clickable="true"
         android:focusable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/runningmate_guideline_Gl"
         app:layout_constraintEnd_toEndOf="parent"/>
 
 
