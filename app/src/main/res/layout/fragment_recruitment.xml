@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <!-- 고정 상단 앱바 -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/recruitment_appbar_ABL"
@@ -104,20 +106,24 @@
                 app:boxBackgroundMode="outline"
                 app:shapeAppearanceOverlay="@style/corner"
                 app:counterEnabled="true"
+                app:boxBackgroundColor="@android:color/transparent"
                 app:boxStrokeColor="@color/text_inputbox"
                 app:counterMaxLength="15">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/recruitment_placetext_TI"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:textSize="10dp"
                     android:hint="장소를 입력하세요"
                     android:maxLength="15"
+                    android:textColor="@color/black"
                     android:singleLine="true"/>
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
+
+
 
 
         <!-- 러닝 이름 -->
@@ -156,7 +162,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/recruitment_nametext_TI"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:hint="이름을 입력하세요"
                     android:textSize="10dp"
                     android:maxLength="15"
@@ -200,7 +206,7 @@
                     android:layout_width="0dp"
                     app:shapeAppearanceOverlay="@style/corner"
                     app:boxStrokeColor="@color/text_inputbox"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="시작 시간">
 
@@ -209,8 +215,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="10dp"
-                        android:focusable="false"
-                        android:clickable="true" />
+                        android:focusable="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- 중간 여백 -->
@@ -224,7 +229,7 @@
                     android:layout_width="0dp"
                     app:shapeAppearanceOverlay="@style/corner"
                     app:boxStrokeColor="@color/text_inputbox"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="종료 시간">
 
@@ -233,8 +238,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="10dp"
-                        android:focusable="false"
-                        android:clickable="true" />
+                        android:focusable="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </LinearLayout>
@@ -257,7 +261,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="160dp"/>
+            android:layout_marginBottom="120dp"/>
 
         <!-- 버튼 위 여백(폼이 버튼에 붙지 않게) -->
         <Space
