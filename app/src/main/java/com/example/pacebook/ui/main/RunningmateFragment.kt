@@ -35,6 +35,37 @@ class RunningmateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // RunningmateFragment.kt 파일의 onViewCreated
+        parentFragmentManager.setFragmentResultListener("newMatePost", this) { requestKey, bundle ->
+            // 1. 전달받은 데이터들을 꺼냅니다.
+            val place = bundle.getString("place", "알 수 없는 장소")
+            val intro = bundle.getString("intro", "")
+            val time = bundle.getString("time", "")
+            // val pace = bundle.getString("pace", "") // 페이스는 나중에 추가
+
+            // 2. 새 User 객체를 만듭니다.
+            val newUser = User(
+                name = place,
+                intro = intro,
+                time = time,
+                // pace = "N/A", // 임시값
+                participantCount = 1, // 처음 만든 사람이므로 1명
+                profileImage = R.drawable.example_picture // TODO: 선택된 이미지로 교체
+            )
+
+            // 3. 전체 메이트 목록에 새로 만든 User를 추가합니다.
+            allUsers.add(0, newUser) // 0번 인덱스에 추가해서 맨 앞에 보이게 함
+
+            // 4. 어댑터에게 새 아이템이 추가되었음을 알립니다.
+            chooseMateAdapter.notifyItemInserted(0)
+            selectedUsers.add(0, newUser)
+            selectedMateAdapter.notifyItemInserted(0)
+            updateMateTitle()
+            updateEmptyViewVisibility()
+        }
+
+
+
         // [수정] 다이얼로그에서 '탈퇴하기'를 눌렀을 때 결과를 받습니다.
         parentFragmentManager.setFragmentResultListener("leaveMate", this) { _, bundle ->
             val position = bundle.getInt("position")
@@ -99,13 +130,13 @@ class RunningmateFragment : Fragment() {
             // [수정] 완성된 User 클래스에 맞게 더미 데이터를 채웁니다.
             allUsers.addAll(
                 listOf(
-                    User("한양대 정문", 5, R.drawable.example_picture, "오후 7시", "6'00\"", "정문에서 만나요!"),
-                    User("한대앞역", 3, R.drawable.example_picture, "오후 8시", "5'30\"", "역 앞에서 바로 출발합니다."),
-                    User("파리바게트 앞", 4, R.drawable.example_picture, "오전 6시", "6'30\"", "아침 운동하실 분!"),
-                    User("후문 놀이터", 2, R.drawable.example_picture, "오후 9시", "7'00\"", "천천히 뛰어요."),
-                    User("안산천", 6, R.drawable.example_picture, "주말 오후", "5'00\"", "페이스 좋으신 분 환영"),
-                    User("호수공원", 7, R.drawable.example_picture, "아무때나", "자유", "같이 뛰어요~"),
-                    User("상록수 근처", 8, R.drawable.example_picture, "오후 7시", "6'15\"", "퇴근 후 러닝!")
+                    User("한양대 정문", 5, R.drawable.example_picture, "오후 7시", "정문에서 만나요!"),
+                    User("한대앞역", 3, R.drawable.example_picture, "오후 8시", "역 앞에서 바로 출발합니다."),
+                    User("파리바게트 앞", 4, R.drawable.example_picture, "오전 6시", "아침 운동하실 분!"),
+                    User("후문 놀이터", 2, R.drawable.example_picture, "오후 9시", "천천히 뛰어요."),
+                    User("안산천", 6, R.drawable.example_picture, "주말 오후", "페이스 좋으신 분 환영"),
+                    User("호수공원", 7, R.drawable.example_picture, "아무때나", "같이 뛰어요~"),
+                    User("상록수 근처", 8, R.drawable.example_picture, "오후 7시",  "퇴근 후 러닝!")
                 )
             )
         }

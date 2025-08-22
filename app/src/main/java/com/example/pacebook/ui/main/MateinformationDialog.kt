@@ -28,14 +28,12 @@ class MateDetailsDialogFragment : DialogFragment() {
         // 전달받은 데이터로 UI 채우기
         val place = arguments?.getString("place")
         val time = arguments?.getString("time")
-        val pace = arguments?.getString("pace")
         val intro = arguments?.getString("intro")
         val imageResId = arguments?.getInt("imageResId", 0) ?: 0
         val position = arguments?.getInt("position", -1)
 
         binding.mateinformationInputplaceTv.text = place
         binding.mateinformationInputtimeTv.text = time
-        binding.mateinformationInputpaceTv.text = pace
         binding.mateinformationInputintroTv.text = intro
 
         if (imageResId != 0) {
@@ -83,7 +81,6 @@ class MateDetailsDialogFragment : DialogFragment() {
             // [수정] User 객체의 모든 정보를 arguments에 담아 전달합니다.
             args.putString("place", user.name)
             args.putString("time", user.time)
-            args.putString("pace", user.pace)
             args.putString("intro", user.intro)
             args.putInt("imageResId", user.profileImage)
             args.putInt("position", position)

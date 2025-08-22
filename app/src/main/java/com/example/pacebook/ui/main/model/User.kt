@@ -5,6 +5,5 @@ data class User(
     val participantCount: Int,
     val profileImage: Int,
     val time: String,
-    val pace: String,
     val intro: String
 )

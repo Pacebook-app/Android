@@ -10,6 +10,7 @@ import com.example.pacebook.databinding.FragmentRecruitmentBinding // ★★★ 
 import com.google.android.material.textfield.TextInputEditText
 import java.util.Calendar
 import android.widget.Toast
+import androidx.core.os.bundleOf
 
 class Recruitment : Fragment() {
 
@@ -41,6 +42,25 @@ class Recruitment : Fragment() {
                     // TODO: 갤러리(앨범)를 여는 로직 구현
                 }
             }
+        }
+
+        binding.recruitmentMakebuttonMB.setOnClickListener {
+            // 1. 입력된 정보들을 가져옵니다.
+            val place = binding.recruitmentPlacetextTI.text.toString()
+            val intro = binding.recruitmentIntrotextTI.text.toString()
+            val startTime = binding.recruitmentStarttimeTI.text.toString()
+            val endTime = binding.recruitmentEndtimeTI.text.toString() // 예시
+
+            // 2. Bundle에 데이터를 담습니다.
+            val result = bundleOf(
+                "place" to place,
+                "intro" to intro,
+                "time" to "$startTime ~ $endTime"
+            )
+            parentFragmentManager.setFragmentResult("newMatePost", result)
+
+            // 4. 현재 프래그먼트를 닫고 이전 화면으로 돌아갑니다.
+            parentFragmentManager.popBackStack()
         }
 
         binding.recruitmentPicturebuttonAB.setOnClickListener {
