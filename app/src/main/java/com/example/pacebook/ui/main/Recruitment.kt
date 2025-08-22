@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.pacebook.databinding.FragmentRecruitmentBinding // ★★★ import 변경 ★★★
 import com.google.android.material.textfield.TextInputEditText
 import java.util.Calendar
+import android.widget.Toast
 
 class Recruitment : Fragment() {
 
@@ -28,6 +29,25 @@ class Recruitment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        parentFragmentManager.setFragmentResultListener("imagePicker", this) { requestKey, bundle ->
+            val result = bundle.getString("action")
+            when (result) {
+                "default" -> {
+                    Toast.makeText(requireContext(), "기본 이미지 선택", Toast.LENGTH_SHORT).show()
+                    // TODO: 기본 이미지를 보여주는 로직 구현
+                }
+                "album" -> {
+                    Toast.makeText(requireContext(), "앨범에서 선택", Toast.LENGTH_SHORT).show()
+                    // TODO: 갤러리(앨범)를 여는 로직 구현
+                }
+            }
+        }
+
+        binding.recruitmentPicturebuttonAB.setOnClickListener {
+            val bottomSheet = ImagePickerBottomSheetDialog()
+            bottomSheet.show(parentFragmentManager, bottomSheet.tag)
+        }
+
         // 3. 모든 뷰 접근을 'binding.ID' 방식으로 변경
         // --- 툴바 뒤로가기 기능 ---
         binding.recruitmentAppbarMT.setNavigationOnClickListener {
@@ -41,6 +61,7 @@ class Recruitment : Fragment() {
         binding.recruitmentEndtimeboxIL.setOnClickListener {
             showTimePickerDialog(binding.recruitmentEndtimeTI)
         }
+
     }
 
     // 시간 선택 다이얼로그를 보여주는 함수 (수정 없음)

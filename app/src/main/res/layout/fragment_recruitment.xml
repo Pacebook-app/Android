@@ -65,7 +65,7 @@
                     android:layout_gravity="bottom|end"
                     android:layout_margin="10dp"
                     app:srcCompat="@drawable/camera_icon"
-                    app:backgroundTint="#0A57FF"
+                    app:backgroundTint="#495C89"
                     app:tint="@android:color/white"
                     app:fabSize="mini"
                     app:iconSize="18dp"
