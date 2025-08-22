@@ -1,7 +1,10 @@
 package com.example.pacebook.ui.model
 
 data class User(
-    val place: String,
+    val name: String,
     val participantCount: Int,
-    val imageResId: Int
+    val profileImage: Int,
+    val time: String,
+    val pace: String,
+    val intro: String
 )
