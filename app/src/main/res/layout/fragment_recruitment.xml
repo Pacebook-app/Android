@@ -197,49 +197,69 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
+                android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/recruitment_starttimebox_IL"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <FrameLayout
                     android:layout_width="0dp"
-                    app:shapeAppearanceOverlay="@style/corner"
-                    app:boxStrokeColor="@color/text_inputbox"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="시작 시간">
+                    android:layout_weight="1">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/recruitment_starttime_TI"
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="10dp"
-                        android:focusable="false"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                        app:shapeAppearanceOverlay="@style/corner"
+                        app:boxStrokeColor="@color/text_inputbox"
+                        android:hint="시작 시간">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/recruitment_starttime_TI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:textSize="10dp"
 
-                <!-- 중간 여백 -->
+                            android:clickable="false"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:id="@+id/recruitment_starttimeclickarea_v"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"/>
+                </FrameLayout>
+
                 <Space
                     android:layout_width="12dp"
                     android:layout_height="wrap_content" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/recruitment_endtimebox_IL"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <FrameLayout
                     android:layout_width="0dp"
-                    app:shapeAppearanceOverlay="@style/corner"
-                    app:boxStrokeColor="@color/text_inputbox"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="종료 시간">
+                    android:layout_weight="1">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/recruitment_endtime_TI"
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="10dp"
-                        android:focusable="false"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                        app:shapeAppearanceOverlay="@style/corner"
+                        app:boxStrokeColor="@color/text_inputbox"
+                        android:hint="종료 시간">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/recruitment_endtime_TI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="10dp"
+                            android:focusable="false"
+                            android:clickable="false"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:id="@+id/recruitment_endtimeclickarea_v"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"/>
+                </FrameLayout>
+
             </LinearLayout>
         </LinearLayout>
 

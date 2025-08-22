@@ -55,10 +55,10 @@ class Recruitment : Fragment() {
         }
 
         // --- 시간 선택 기능 ---
-        binding.recruitmentStarttimeboxIL.setOnClickListener {
+        binding.recruitmentStarttimeclickareaV.setOnClickListener {
             showTimePickerDialog(binding.recruitmentStarttimeTI)
         }
-        binding.recruitmentEndtimeboxIL.setOnClickListener {
+        binding.recruitmentEndtimeclickareaV.setOnClickListener {
             showTimePickerDialog(binding.recruitmentEndtimeTI)
         }
 
