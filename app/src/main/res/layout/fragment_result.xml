@@ -6,6 +6,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.ResultFragment">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/runningmate_guideline_Gl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/bottom_navigation_height" />
 
 
     <TextView
@@ -35,22 +41,21 @@
         app:layout_constraintTop_toBottomOf="@id/result_title_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="16dp"
             android:gravity="center_vertical">
-            
+
+
             <ImageView
                 android:id="@+id/result_time_icon"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_marginEnd="20dp"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_launcher_foreground"
-                android:visibility="gone"/>
+                android:src="@drawable/ellipse"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -105,9 +110,7 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_marginEnd="20dp"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_launcher_foreground"
-                android:visibility="gone"/>
+                android:src="@drawable/ellipse"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -163,8 +166,7 @@
                 android:layout_height="28dp"
                 android:layout_marginEnd="20dp"
                 android:contentDescription="@null"
-                android:src="@drawable/ic_launcher_foreground"
-                android:visibility="gone"/>
+                android:src="@drawable/ellipse" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -197,7 +199,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="220dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="6dp"
         app:strokeWidth="1dp"
@@ -220,8 +222,7 @@
                 android:layout_height="28dp"
                 android:layout_marginEnd="20dp"
                 android:contentDescription="@null"
-                android:src="@drawable/ic_launcher_foreground"
-                android:visibility="gone"/>
+                android:src="@drawable/ellipse"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -256,7 +257,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="220dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="6dp"
         app:strokeWidth="1dp"
@@ -279,8 +280,7 @@
                 android:layout_height="28dp"
                 android:layout_marginEnd="20dp"
                 android:contentDescription="@null"
-                android:src="@drawable/ic_launcher_foreground"
-                android:visibility="gone"/>
+                android:src="@drawable/ellipse"/>
 
             <LinearLayout
                 android:layout_width="0dp"
