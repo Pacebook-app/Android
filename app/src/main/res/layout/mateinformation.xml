@@ -131,7 +131,7 @@
         android:layout_marginBottom="16dp">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mateinformation_cancel_mb"
+            android:id="@+id/mateinformation_negative_btn"
             style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -142,7 +142,7 @@
             android:text="취소"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mateinformation_secession_mb"
+            android:id="@+id/mateinformation_positive_btn"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

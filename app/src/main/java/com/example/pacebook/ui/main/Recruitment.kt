@@ -13,8 +13,6 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 
 class Recruitment : Fragment() {
-
-    // 1. View Binding을 위한 변수 선언 (RunningmateFragment와 동일한 방식)
     private var _binding: FragmentRecruitmentBinding? = null
     private val binding get() = _binding!!
 
@@ -22,7 +20,6 @@ class Recruitment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // 2. View Binding으로 레이아웃 인플레이트
         _binding = FragmentRecruitmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -45,21 +42,17 @@ class Recruitment : Fragment() {
         }
 
         binding.recruitmentMakebuttonMB.setOnClickListener {
-            // 1. 입력된 정보들을 가져옵니다.
             val place = binding.recruitmentPlacetextTI.text.toString()
             val intro = binding.recruitmentIntrotextTI.text.toString()
             val startTime = binding.recruitmentStarttimeTI.text.toString()
-            val endTime = binding.recruitmentEndtimeTI.text.toString() // 예시
+            val endTime = binding.recruitmentEndtimeTI.text.toString()
 
-            // 2. Bundle에 데이터를 담습니다.
             val result = bundleOf(
                 "place" to place,
                 "intro" to intro,
                 "time" to "$startTime ~ $endTime"
             )
             parentFragmentManager.setFragmentResult("newMatePost", result)
-
-            // 4. 현재 프래그먼트를 닫고 이전 화면으로 돌아갑니다.
             parentFragmentManager.popBackStack()
         }
 
@@ -68,7 +61,7 @@ class Recruitment : Fragment() {
             bottomSheet.show(parentFragmentManager, bottomSheet.tag)
         }
 
-        // 3. 모든 뷰 접근을 'binding.ID' 방식으로 변경
+        // 모든 뷰 접근을 'binding.ID' 방식으로 변경
         // --- 툴바 뒤로가기 기능 ---
         binding.recruitmentAppbarMT.setNavigationOnClickListener {
             parentFragmentManager.popBackStack()
@@ -84,7 +77,7 @@ class Recruitment : Fragment() {
 
     }
 
-    // 시간 선택 다이얼로그를 보여주는 함수 (수정 없음)
+    // 시간 선택 다이얼로그를 보여주는 함수
     private fun showTimePickerDialog(targetEditText: TextInputEditText) {
         val cal = Calendar.getInstance()
         val timePickerDialog = TimePickerDialog(
@@ -104,7 +97,6 @@ class Recruitment : Fragment() {
         timePickerDialog.show()
     }
 
-    // 4. Fragment가 파괴될 때 binding을 정리 (메모리 누수 방지)
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
