@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_grah"
+    app:startDestination="@id/runningmateFragment">
+
+    <fragment
+        android:id="@+id/runningmateFragment"
+        android:name="com.example.pacebook.ui.main.RunningmateFragment"
+        android:label="fragment_runningmate"
+        tools:layout="@layout/fragment_runningmate" >
+        <action
+            android:id="@+id/action_runningmateFragment_to_recruitment2"
+            app:destination="@id/recruitment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/recruitment2"
+        android:name="com.example.pacebook.ui.main.Recruitment"
+        android:label="Recruitment" />
+</navigation>

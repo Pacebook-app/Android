@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- 둥근 이미지 -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/selected_mate_image_iv"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/example_picture"
+            app:shapeAppearanceOverlay="@style/corner" />
+
+        <!-- 장소명 -->
+        <TextView
+            android:id="@+id/selected_mate_location_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="한양대 ERICA 러닝"
+            android:textColor="#737070"
+            android:textSize="12sp"
+            android:drawablePadding="4dp"
+            android:drawableTint="#999999" />
+
+        <!-- 인원수 + 아이콘 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal"
+            android:gravity="end|center_vertical">
+
+            <TextView
+                android:id="@+id/selected_mate_count_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11명 도전 중"
+                android:textColor="#999999"
+                android:textSize="10sp" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/people_icon" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
