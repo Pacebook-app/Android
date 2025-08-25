@@ -6,22 +6,4 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.mypage.MypageFragment">
 
-    <TextView
-        android:id="@+id/mypage_test1_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="안녕하세요"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-    <TextView
-        android:id="@+id/mypage_test2_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="하이하이"
-        app:layout_constraintTop_toBottomOf="@id/mypage_test1_tv"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
