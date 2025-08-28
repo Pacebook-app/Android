@@ -4,8 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pacebook.R
 import com.example.pacebook.databinding.ActivityMainBinding
-import com.example.pacebook.R
-import com.example.pacebook.ui.main.RunningmateFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,10 +29,6 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
 
-        binding.mainBnv.setOnClickListener { item ->
-            when (item.itemId) {
-                R.id.
-            }
-        }
+
     }
 }
