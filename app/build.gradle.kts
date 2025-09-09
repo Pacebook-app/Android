@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -16,10 +18,16 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val properties = Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+        buildConfigField("String", "NATIVE_APP_KEY", "\"${properties["NATIVE_APP_KEY"]}\"")
+        manifestPlaceholders["NATIVE_APP_KEY"] = properties["NATIVE_APP_KEY"].toString()
     }
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 
     buildTypes {
@@ -52,5 +60,20 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("androidx.fragment:fragment-ktx:1.5.7")
+
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.3")
+    implementation("com.google.android.material:material:1.11.0")
+
+    implementation("com.kakao.sdk:v2-user:2.13.0")
+    implementation("com.kakao.sdk:v2-auth:2.13.0")
+
+    implementation("androidx.core:core-splashscreen:1.0.0")
+
+    implementation("com.naver.maps:map-sdk:3.22.1")
+
+    implementation("com.google.android.gms:play-services-location:21.0.1")
 }
