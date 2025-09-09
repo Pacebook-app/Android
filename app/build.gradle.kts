@@ -74,4 +74,6 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.0")
 
     implementation("com.naver.maps:map-sdk:3.22.1")
+
+    implementation("com.google.android.gms:play-services-location:21.0.1")
 }
