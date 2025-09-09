@@ -72,4 +72,6 @@ dependencies {
     implementation("com.kakao.sdk:v2-auth:2.13.0")
 
     implementation("androidx.core:core-splashscreen:1.0.0")
+
+    implementation("com.naver.maps:map-sdk:3.22.1")
 }

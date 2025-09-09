@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pacebook.R
 import com.example.pacebook.databinding.ActivityMainBinding
+import com.naver.maps.map.NaverMapSdk
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +12,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        NaverMapSdk.getInstance(this).client =
+            NaverMapSdk.NcpKeyClient("d2nb10oq0w")
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
